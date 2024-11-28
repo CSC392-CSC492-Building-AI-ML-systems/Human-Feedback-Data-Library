@@ -31,6 +31,7 @@ export const SearchPage = () => {
   const [max, setMax] = useState(0);
   const [date, setDate] = useState(null);
   const [loading_lengths, setLoading] = useState(true);
+  const [num_of_datasets, setNum] = useState(0);
 
   const [keyword_options, setKeyOptions] = useState(null);
 
@@ -96,6 +97,8 @@ export const SearchPage = () => {
         let temp_arr = []
         const lang_set = new Set();
         const key_set = new Set();
+
+        setNum(data.length);
         while (count < data.length) {
           data[count].tags.forEach(element => {
             key_set.add(element);
@@ -179,6 +182,9 @@ export const SearchPage = () => {
     }
 
     let lang = langref.current ? langref.current.value : null;
+    if (lang == "N/A") {
+      lang = null;
+    }
     let searchText = searchRef.current ? searchRef.current.value : null;
     console.log(searchText);
 
@@ -198,6 +204,8 @@ export const SearchPage = () => {
       body: JSON.stringify(searchParams)
     }).then(response => response.json())
       .then(data => {
+
+        setNum(data.length);
         // Filter the response data by seeing if its descriptions contain key words or words in search bar.
         // let searchWords = searchText.split(/\s+/); // Splits by one or more spaces
         let searchWord = searchText.toLowerCase();
@@ -428,6 +436,7 @@ export const SearchPage = () => {
               <div className="col-3 lang-col">
                 <div className="text-wrapper-28">Language</div>
                 <Form.Select ref={langref} className="Language-Select">
+                  <option value="N/A">Unassigned</option>
                   {languages.map((lang, index) => (
                     <option key={lang} value={lang}>
                       {lang}
@@ -514,7 +523,13 @@ export const SearchPage = () => {
               }
             }} className="col-1 data-button">Next</Button>
 
+
+
           </div>
+          <div className="num-of-datasets-text">
+            Current # of Datasets: {num_of_datasets}
+          </div>
+
         </div>
 
         <nav className="navbar navbar-expand-lg navbar-3">

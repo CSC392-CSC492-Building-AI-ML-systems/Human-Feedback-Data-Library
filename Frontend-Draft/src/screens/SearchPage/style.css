@@ -197,6 +197,11 @@
   width: 100%;
 }
 
+.search-page .num-of-datasets-text {
+  position: relative;
+  left: -30px;
+}
+
 .search-page .path {
   height: 1633px;
   min-height: 1633px;
@@ -836,6 +841,11 @@
 }
 
 @media (min-width: 700px) and (max-width:999px) {
+  .search-page .num-of-datasets-text {
+    position: relative;
+    left: 30px;
+  }
+
   .search-page .modal-item {
     width: 500px;
   }
@@ -915,6 +925,11 @@
 }
 
 @media (min-width: 500px) and (max-width: 699px) {
+  .search-page .num-of-datasets-text {
+    position: relative;
+    left: -5px;
+  }
+
   .search-page .data-row {
     font-size: small;
   }
@@ -1004,6 +1019,11 @@
 }
 
 @media (min-width: 400px) and (max-width: 499px) {
+  .search-page .num-of-datasets-text {
+    position: relative;
+    left: -5px;
+  }
+
   .search-page .data-row {
     font-size: 10px;
   }
@@ -1106,6 +1126,12 @@
 }
 
 @media (max-width: 399px) {
+
+  .search-page .num-of-datasets-text {
+    position: relative;
+    left: -5px;
+  }
+
   .modal-button {
     font-size: 10px;
     width: 50%;

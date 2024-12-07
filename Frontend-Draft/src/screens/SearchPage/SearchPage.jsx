@@ -59,12 +59,7 @@ export const SearchPage = () => {
 
 
   const [value, setValue] = React.useState([0, 31284837]);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-  function valuetext(value) {
-    return `${value}°C`;
-  }
+
 
 
 
